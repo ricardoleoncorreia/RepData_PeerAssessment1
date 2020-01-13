@@ -1,5 +1,7 @@
 ---
-title: "Reproducible Research: Peer Assessment 1"
+title: 'Reproducible Research: Peer Assessment 1'
+author: "Ricardo Leon"
+date: "Sun Jan 12 2020"
 output: 
   html_document:
     keep_md: true
@@ -40,10 +42,14 @@ data <- load_data()
 data_per_day <- get_total_steps_per_day(data)
 
 ggplot(data_per_day, aes(x = total_steps)) +
-    geom_histogram(bins = 57) +
+    geom_histogram(bins = 50) +
     ggtitle("Frequency of total steps") +
     xlab("Total Steps") +
     ylab("Frequency")
+```
+
+```
+## Warning: Removed 8 rows containing non-finite values (stat_bin).
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-2-1.png)<!-- -->
@@ -53,7 +59,7 @@ overall_mean <- mean(data_per_day$total_steps, na.rm = TRUE)
 overall_median <- median(data_per_day$total_steps, na.rm = TRUE)
 ```
 
-- The mean value for the total steps per day is 9354,2295082 and the median 10395.
+- The mean value for the total steps per day is 1,0766189\times 10^{4} and the median 10765.
 
 
 ## What is the average daily activity pattern?
@@ -87,7 +93,7 @@ data_per_day_no_na <- get_total_steps_per_day(data_no_na)
 total_missing_values <- sum(is.na(data$steps))
 total_zero_values <- sum(data$steps==0, na.rm = TRUE)
 ggplot(data_per_day_no_na, aes(x = total_steps)) +
-        geom_histogram(bins = 57) +
+        geom_histogram(bins = 50) +
         ggtitle("Frequency of total steps") +
         xlab("Total Steps") +
         ylab("Frequency")

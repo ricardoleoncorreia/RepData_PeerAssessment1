@@ -20,14 +20,14 @@ load_data <- function() {
 get_total_steps_per_day <- function(data) {
     data %>%
         group_by(date) %>%
-        summarize(total_steps = sum(steps, na.rm = TRUE))
+        summarise(total_steps = sum(steps))
 }
 
 
 get_mean_per_interval <- function(data) {
     data %>%
         group_by(interval) %>%
-        summarize(mean_value = mean(steps, na.rm = TRUE))
+        summarise(mean_value = mean(steps, na.rm = TRUE))
 }
 
 
@@ -47,5 +47,5 @@ mean_by_day_type <- function(data) {
         mutate(type = is.weekend(date)) %>%
         mutate(type = as.factor(ifelse(type, "weekend", "weekday"))) %>%
         group_by(interval, type) %>%
-        summarize(mean_value = mean(steps, na.rm = TRUE))
+        summarise(mean_value = mean(steps, na.rm = TRUE))
 }
