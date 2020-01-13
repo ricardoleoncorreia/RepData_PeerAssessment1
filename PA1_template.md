@@ -109,7 +109,7 @@ overall_median_no_na <- median(data_per_day_no_na$total_steps)
 - There are 2304 missing values.
 - Missing values were replaced by the median of each day.
 - With imputed values, the mean value for the total steps per day is 9354,2295082 and the median 1,0395\times 10^{4}.
-- These values for mean and median doesn't differ from the previous result because missing values were substituted by zero (median per day).
+- Imputing missing values with the value zero (median individual value) makes both, the mean and the median of the total number of steps, decrease because the number of observations increases but no value was added.
 
 
 ## Are there differences in activity patterns between weekdays and weekends?
